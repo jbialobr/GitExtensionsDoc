@@ -73,7 +73,12 @@ All settings will be verified when Git Extensions is started for the first time.
 any settings to be changed, the settings dialog will be shown. All incorrect settings will be marked in red. 
 You can ask Git Extensions to try to fix the setting for you by clicking on it.
 When installing Git Extensions for the first time (and you do not have Git already installed on your system), you will normally be required to configure your username 
-and email address. 
+and email address.
+
+The settings dialog can be invoked at any time by selecting ``Settings`` from the ``Settings`` menu option.
+
+Main Page
+^^^^^^^^^
 
 .. image:: /images/settings/checklist.png
 
@@ -181,6 +186,10 @@ In the colors tab the following items can be set:
 |Application Icon       | The color of the application icon. This is useful for recognising various open instances. |
 +-----------------------+-------------------------------------------------------------------------------------------+
 
+.. _settings-start-page:
+
+Settings - Start Page
+^^^^^^^^^^^^^^^^^^^^^
 .. image:: /images/settings/start_page.png
 
 The items on the Start Page can be edited. In this tab you can add and remove categories. Per category you can either configure 
@@ -236,9 +245,47 @@ and Recent Repositories) is static. The right side of the page is where favourit
 
 .. image:: /images/start_page.png
 
-**UPTO HERE** Repositories can be moved to favourites using the context menu. Choose edit to add new repositories to any category.
+Recent Repositories can be moved to favourites using the context menu. Choose ``Move to category / New category`` to create a new category
+and add the repository to it, or you can add the repository to an existing category (e.g. 'Currents' as shown below).
 
 .. image:: /images/move_to_category.png
+
+A context menu is available for both the category and the repositories listed underneath it.
+
+Entries on Category context menu 
+
++------------------+-------------------------------------------------------------------------------------------------------+
+|Move Up           | Move the category (and any repositories under it) higher on the page.                                 |
++------------------+-------------------------------------------------------------------------------------------------------+
+|Move Down         | Move the category (and any repositories under it) lower on the page.                                  |
++------------------+-------------------------------------------------------------------------------------------------------+
+|Remove            | Remove the category (and any repositories under it) from the page. Note: Git repositories are *not*   |
+|                  | physically removed either locally or remotely.                                                        |
++------------------+-------------------------------------------------------------------------------------------------------+
+|Edit              | Shows the Start Page settings window where both category and repository details can be modified.      |
+|                  | See :ref:`settings-start-page`.                                                                       |
++------------------+-------------------------------------------------------------------------------------------------------+
+
+Entries on repository context menu
+
++------------------+-------------------------------------------------------------------------------------------------------+
+|Move to category  | Move the repository to a new or existing category.                                                    |
++------------------+-------------------------------------------------------------------------------------------------------+
+|Move up           | Move the repository higher (within the category).                                                     |
++------------------+-------------------------------------------------------------------------------------------------------+
+|Move down         | Move the repository lower (within the category).                                                      |
++------------------+-------------------------------------------------------------------------------------------------------+
+|Remove            | Remove the repository from the category. Note: the repository is *not* physically removed either      |
+|                  | locally or remotely.                                                                                  |
++------------------+-------------------------------------------------------------------------------------------------------+
+|Edit              | Shows the Start Page settings window where both category and repository details can be modified.      |
+|                  | See :ref:`settings-start-page`.                                                                       |
++------------------+-------------------------------------------------------------------------------------------------------+
+|Show current      | Toggles the display of the branch name next to the repository name. This identifies the currently     |
+|branch            | checked out branch for the repository.                                                                |
++------------------+-------------------------------------------------------------------------------------------------------+
+
+** UPTO HERE **
 
 Clone existing repository
 -------------------------
