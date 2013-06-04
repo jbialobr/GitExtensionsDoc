@@ -13,18 +13,18 @@ The installer can be found `here <http://code.google.com/p/gitextensions/>`_.
 
 .. image:: /images/install/install1.png
 
-.. image:: /images/install/install2.png
+.. figure:: /images/install/install2.png
 
     Git Extensions depends heavily on MsysGit. When MsysGit is not installed, ensure the "Install MsysGit" checkbox is checked. Kdiff3 is 
     optional, but is advised as a merge tool.
 
 .. image:: /images/install/install3.png
 
-.. image:: /images/install/install4.png
+.. figure:: /images/install/install4.png
 
     Choose the options to install.
 
-.. image:: /images/install/install5.png
+.. figure:: /images/install/install5.png
 
     Choose the SSH client to use. PuTTY is the default because it has better Windows integration.
 
