@@ -70,127 +70,257 @@ Settings
 --------
 
 All settings will be verified when Git Extensions is started for the first time. If Git Extensions requires 
-any settings to be changed, the settings dialog will be shown. All incorrect settings will be marked in red. 
+any settings to be changed, the Settings dialog will be shown. All incorrect settings will be marked in red. 
 You can ask Git Extensions to try to fix the setting for you by clicking on it.
-When installing Git Extensions for the first time (and you do not have Git already installed on your system), you will normally be required to configure your username 
-and email address.
+When installing Git Extensions for the first time (and you do not have Git already installed on your system),
+you will normally be required to configure your username and email address.
 
 The settings dialog can be invoked at any time by selecting ``Settings`` from the ``Settings`` menu option.
 
-Main Page
-^^^^^^^^^
+.. image:: /images/settings/settings.png
 
-.. image:: /images/settings/checklist.png
+The following buttons are always available on any page of the Settings dialog. Sometimes the ``Cancel`` and ``Discard``
+buttons have no effect for the page - this will be noted on the page in the area next to the buttons.
+
++-------------------------------+--------------------------------------------------------------------------+
+| Button                        | Description                                                              |
++===============================+==========================================================================+
+|``OK``                         | Save any entered changes made in *any* settings page and close the       |
+|                               | Settings dialog.                                                         |
++-------------------------------+--------------------------------------------------------------------------+
+|``Cancel``                     | Any entered changes in *any* settings page are *not* saved. The Settings |
+|                               | dialog is closed.                                                        |
++-------------------------------+--------------------------------------------------------------------------+
+|``Discard``                    | Any entered changes in *any* settings page are discarded i.e. they are   |
+|                               | reset back to their original values.                                     |
++-------------------------------+--------------------------------------------------------------------------+
+|``Apply``                      | Any entered changes in *any* settings page are saved.                    |
++-------------------------------+--------------------------------------------------------------------------+
 
 All settings that are specific to Git Extensions will be stored in a file either in the user's application data path or with the program. 
 The location is dependant on the IsPortable setting in the GitExtensions.exe.config file that is with the program.
 Settings that are used by Git are stored in the configuration files of Git. The global settings are stored in a file called 
 ``.gitconfig`` in the user directory. The local settings are stored in the ``.git\config`` file of the repository.
 
-.. image:: /images/settings/git.png
+Settings - Checklist
+^^^^^^^^^^^^^^^^^^^^
 
+This page is a visual overview of the minimal settings that Git Extensions requires to work properly. Any items highlighted in red should
+be configured by clicking on the highlighted item. 
 
-The 'Git' tab contains the settings needed to access git repositories. The repositories will be accessed using external 
+This page contains the following settings and buttons.
+
++---------------------------------------------------+----------------------------------------------------------------------------+
+| Setting                                           | Description                                                                |
++===================================================+============================================================================+
+|Check settings at startup (disables automatically  | Forces Git Extensions to re-check the minimal set of required settings     |
+|if all settings are correct)                       | the next time Git Extensions is started. If all settings are 'green' this  |
+|                                                   | will be automatically unchecked.                                           |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|``Save and rescan`` Button                         | Saves any setting changes made and re-checks the settings to see if the    |
+|                                                   | minimal requirements are now met.                                          |
++---------------------------------------------------+----------------------------------------------------------------------------+
+
+Settings - Git
+^^^^^^^^^^^^^^
+
+This page contains the settings needed to access git repositories. The repositories will be accessed using external 
 tools. For Windows usually MsysGit or cygwin are used. Git Extensions will try to configure these settings automatically.
 
-+-----------------------------------------+--------------------------------------------------------------------------+
-|Command to run git (git.cmd or git.exe)  | Needed for Git Extensions to run Git commands. Set the full command      |
-|                                         | used to run git (MsysGit or cygwin).                                     |
-+-----------------------------------------+--------------------------------------------------------------------------+
-|Path to Linux tools                      | A few linux tools are used by Git Extensions. When MsysGit is installed, |
-|                                         | these tools are located in the bin directory of MsysGit.                 |
-+-----------------------------------------+--------------------------------------------------------------------------+
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Group        | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|Git          |Command used to run git (git.cmd or  | Needed for Git Extensions to run Git commands. Set the full command used   |
+|             | git.exe)                            | to run git (MsysGit or cygwin). Use the ``Browse`` button to find the      |
+|             |                                     | executable on your file system.                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Path to Linux tools (sh). Leave empty| A few linux tools are used by Git Extensions. When MsysGit is installed,   |
+|             |when it is in the path.              | these tools are located in the bin directory of MsysGit. Use the           |
+|             |                                     | ``Browse`` button to find the directory on your file system.               |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Environment  |``Change HOME`` Button               | This button opens a dialog where the HOME directory can be changed.        |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
 
-The global configuration file used by git will be put in the home directory. On some systems the home directory is not set 
+The global configuration file used by git will be put in the HOME directory. On some systems the home directory is not set 
 or is pointed to a network drive. Git Extensions will try to detect the optimal setting for your environment. When there is 
 already a global git configuration file, this location will be used. If you need to relocate the home directory for git, 
 click the ``Change HOME`` button to change this setting. Otherwise leave this setting as the default.
 
-.. image:: /images/settings/git_extensions.png
+Settings - Git Extensions
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ‘Git Extensions’ tab contains all settings needed for Git Extensions to run properly.
+This page contains all the settings needed for Git Extensions to run properly.
 
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Show repository status in browse dialog (number of | When enabled, the number of pending commits are shown on the toolbar as a  |
-|changes in toolbar, restart required)              | figure in parentheses next to the Commit button. Git Extensions must be    |
-|                                                   | stopped and restarted to activate changes to this option.                  |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Show current working dir changes in revision graph | When enabled, two extra revisions are added to the revision graph. The     |
-|                                                   | first shows the current working directory status. The second shows the     |
-|                                                   | staged files. This option can cause slowdowns when browsing large          |
-|                                                   | repositories.                                                              |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Use FileSystemWatcher to check if index is changed | Using the FileSystemWatcher to check index state improves the performance  |
-|                                                   | in some cases. Turn this off if you experience refresh problems in commit  |
-|                                                   | log.                                                                       |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Show stash count on status bar in browse window    | When you use the stash a lot, it can be useful to show the number of       |
-|                                                   | stashed items on the toolbar. This option causes serious slowdowns in large|
-|                                                   | repositories and is turned off by default.                                 |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Limit number of commits that will be loaded in     | Git Extensions uses lazy loading to load the commit log. Lower this number |
-|list at start-up.                                  | to increase the start-up speed. Increase the number for faster scrolling.  |
-|                                                   | Turn of revision graph for optimal result!                                 |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Close process dialog automatically when process is | When a process is finished, clause the process dialog automatically. Leave |
-|succeeded                                          | this option off if you want to see the result of processes. When a process |
-|                                                   | has been failed, the dialog will keep open.When a process is finished,     |
-|                                                   | clause the process dialog automatically. Leave this option off if you want |
-|                                                   | to see the result of processes. When a process has been failed, the dialog |
-|                                                   | will keep open.                                                            |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Show console window when executing git process     | Git Extensions uses command line tools to access the git repository. In    |
-|                                                   | some environments it might be useful to see the command line dialog when a |
-|                                                   | process is executed.                                                       |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Follow renames in file history (experimental)      | Try to follow file renames in the file history.                            |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Revision grid quick search timeout [ms]            | The timeout (milliseconds) used for the quick search feature in the        |
-|                                                   | revision graph. The quick search will be enabled when you start typing and |
-|                                                   | the revision graph has the focus.                                          |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Smtp server for sending patches by email           | Smtp server to use for sending patches.                                    |
-+---------------------------------------------------+----------------------------------------------------------------------------+
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Group        | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|Performance  |Show repository status in browse     | When enabled, the number of pending commits are shown on the toolbar as a  |
+|             |dialog (number of changes in toolbar,| figure in parentheses next to the Commit button. Git Extensions must be    |
+|             |restart required)                    | stopped and restarted to activate changes to this option.                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Show current working dir changes in  | When enabled, two extra revisions are added to the revision graph. The     |
+|             |revision graph                       | first shows the current working directory status. The second shows the     |
+|             |                                     | staged files. This option can cause slowdowns when browsing large          |
+|             |                                     | repositories.                                                              |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Use FileSystemWatcher to check if    | Using the FileSystemWatcher to check index state improves the performance  |
+|             |index is changed                     | in some cases. Turn this off if you experience refresh problems in commit  |
+|             |                                     | log.                                                                       |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Show stash count on status bar in    | When you use the stash a lot, it can be useful to show the number of       |
+|             |browse window                        | stashed items on the toolbar. This option causes serious slowdowns in large|
+|             |                                     | repositories and is turned off by default.                                 |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Check for uncommitted changes in     |                                                                            |
+|             |checkout branch dialog               |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Limit number of commits that will be | Git Extensions uses lazy loading to load the commit log. Lower this number |
+|             |loaded in list at start-up           | to increase the start-up speed. Increase the number for faster scrolling.  |
+|             |                                     | Turn off revision graph for optimal result!                                |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Behaviour    |Close Process dialog when process is | When a process is finished, close the process dialog automatically. Leave  |
+|             |succeeded                            | this option off if you want to see the result of processes. When a process |
+|             |                                     | has failed, the dialog will automatically remain open.                     |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Show console window when executing   | Git Extensions uses command line tools to access the git repository. In    |
+|             |git process                          | some environments it might be useful to see the command line dialog when a |
+|             |                                     | process is executed.                                                       |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Use patience diff algorithm          |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Show errors when staging files       |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Include untracked files in stash     |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Follow renames in file history       | Try to follow file renames in the file history.                            |
+|             |(experimental)                       |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Open last working dir on startup     |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Play Special Startup Sound           |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Compose commit messages in Commit    |                                                                            |
+|             |dialog (otherwise the message will be|                                                                            |
+|             |requested during commit)             |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Revision grid quick search timeout   | The timeout (milliseconds) used for the quick search feature in the        |
+|             |[ms]                                 | revision graph. The quick search will be enabled when you start typing and |
+|             |                                     | the revision graph has the focus.                                          |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Smtp server for sending patches by   | Smtp server to use for sending patches.                                    |
+|             |email                                |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
 
-.. image:: /images/settings/appearance.png
+Settings - Appearance
+^^^^^^^^^^^^^^^^^^^^^
 
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Show relative date instead of full date            | Show relative date, e.g. 2 weeks ago, instead of full date.                |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Get author image from gravatar.com                 | Whether or not to retrieve the user avatar from gravatar. This avatar is   |
-|                                                   | displayed on the 'commit' tab on the main Commit Log window.               |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Image size                                         | The display size of the user avatar.                                       |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Cache images                                       | Long duration will do less requests but will take more time to update      |
-|                                                   | user's avatar changes.                                                     |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Clear image cache                                  | Clear the cached avatars.                                                  |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Fonts                                              | Change the used font.                                                      |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Language (restart required)                        | Choose the language for the Git Extensions interface.                      |
-+---------------------------------------------------+----------------------------------------------------------------------------+
-|Dictionary for spelling checker                    | Choose the dictionary to use for the spelling checker in the commit dialog.|
-+---------------------------------------------------+----------------------------------------------------------------------------+
+This page contains settings that affect the appearance of the application.
 
-.. image:: /images/settings/colors.png
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Group        | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|General      |Show relative date instead of full   | Show relative date, e.g. 2 weeks ago, instead of full date.                |
+|             |date                                 | Displayed on the ``commit`` tab on the main Commit Log window.             |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Show current branch in Visual Studio |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Auto scale user interface when high  |                                                                            |
+|             |dpi is used                          |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Truncate long filenames              |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Author images|Get author image from gravatar.com   | Whether or not to retrieve the user avatar from                            |
+|             |                                     | `gravatar <http://en.gravatar.com/>`_. This avatar is displayed on the     |
+|             |                                     | ``commit`` tab on the main Commit Log window.                              |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Image size                           | The display size of the user avatar.                                       |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Cache images                         | The number of days to elapse before gravatar is checked for any changes to |
+|             |                                     | a user's avatar.                                                           |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |No image service                     |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |``Clear image cache`` button         | Clear the cached avatars.                                                  |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Fonts        |Code font                            | Change the font used for the display of file contents.                     |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Application font                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Language     |Language (restart required)          | Choose the language for the Git Extensions interface.                      |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Dictionary for spelling checker      | Choose the dictionary to use for the spelling checker in the Commit dialog.|
++-------------+-------------------------------------+----------------------------------------------------------------------------+
 
-In the colors tab the following items can be set:
+Settings - Colors
+^^^^^^^^^^^^^^^^^
 
-+-----------------------+-------------------------------------------------------------------------------------------+
-|Revision graph colors  | The colors that are used in the revision graph.                                           |
-+-----------------------+-------------------------------------------------------------------------------------------+
-|Difference view colors | The colors that are used to mark changes.                                                 |
-+-----------------------+-------------------------------------------------------------------------------------------+
-|Application Icon       | The color of the application icon. This is useful for recognising various open instances. |
-+-----------------------+-------------------------------------------------------------------------------------------+
+This page contains settings to define the colors used in the application.
+
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Group        | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|Revision     |Multicolor branches                  |                                                                            |
+|graph        |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Striped branch change                |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Draw branch borders                  |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Draw non relatives graph gray        |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Draw non relatives text gray         |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Color tag                            |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Color branch                         |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Color remote branch                  |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Color other label                    |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Application  |Icon style                           |   useful for recognising various open instances. FIX                       |
+|Icon         |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Icon color                           |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Difference   |Color removed line                   |                                                                            |
+|View         |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Color added line                     |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Color removed line highlighting      |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Color added line highlighting        |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Color section                        |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
 
 .. _settings-start-page:
 
 Settings - Start Page
 ^^^^^^^^^^^^^^^^^^^^^
-.. image:: /images/settings/start_page.png
 
 The items on the Start Page can be edited. In this tab you can add and remove categories. Per category you can either configure 
 a RSS feed or add repositories. The order can be changed using the context menus in the Start Page.
@@ -198,9 +328,10 @@ If the title is set (i.e. non-blank), then this will be displayed on the Start P
 then the path of your repository is displayed as a link on the Start Page. Any Description entered will be also be shown
 on the Start Page. 
 
-.. image:: /images/settings/global_settings.png
+Settings - Global Settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the ``Global settings`` tab the following global Git settings can be entered.
+This page contains the following global Git settings.
 
 +------------------+-------------------------------------------------------------------------------------------------------+
 |User name         | User name shown in commits and patches.                                                               |
@@ -231,11 +362,27 @@ In the ``Global settings`` tab the following global Git settings can be entered.
 |encoding          |                                                                                                       |
 +------------------+-------------------------------------------------------------------------------------------------------+
 
-.. image:: /images/settings/ssh.png
+Settings - SSH
+^^^^^^^^^^^^^^
 
 In the tab ``SSH`` you can configure the SSH client you want Git to use. Git Extensions is optimized for PuTTY. Git Extensions 
 will show command line dialogs if you do not use PuTTY and user input is required. Git Extensions can load SSH keys for PuTTY 
 when needed.
+
+Settings - Scripts
+^^^^^^^^^^^^^^^^^^
+
+Settings - Hotkeys
+^^^^^^^^^^^^^^^^^^
+
+Settings - Shell extension
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Settings - Advanced
+^^^^^^^^^^^^^^^^^^^
+
+Settings - Plugins
+^^^^^^^^^^^^^^^^^^
 
 Start Page
 ----------
