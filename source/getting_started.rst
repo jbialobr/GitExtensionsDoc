@@ -295,11 +295,9 @@ This page contains settings to define the colors used in the application.
 |             |Color other label                    |                                                                            |
 |             |                                     |                                                                            |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
-|Application  |Icon style                           |   useful for recognising various open instances. FIX                       |
-|Icon         |                                     |                                                                            |
-|             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Icon color                           |                                                                            |
-|             |                                     |                                                                            |
+|Application  |Icon style                           | Change icons. Useful for recognising various open instances.               |
+|Icon         +-------------------------------------+----------------------------------------------------------------------------+
+|             |Icon color                           | Changes color of the selected icons.                                       |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Difference   |Color removed line                   |                                                                            |
 |View         |                                     |                                                                            |
@@ -328,39 +326,52 @@ If the title is set (i.e. non-blank), then this will be displayed on the Start P
 then the path of your repository is displayed as a link on the Start Page. Any Description entered will be also be shown
 on the Start Page. 
 
+** TODO **
+
 Settings - Global Settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This page contains the following global Git settings.
 
-+------------------+-------------------------------------------------------------------------------------------------------+
-|User name         | User name shown in commits and patches.                                                               |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|User email        | User email shown in commits and patches.                                                              |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|Editor            | Editor that git.exe opens (e.g. for editing commit message). This is not used by Git Extensions, only |
-|                  | when you call git.exe from the command line. By default Git will use the command line text editor vi. |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|Mergetool         | Merge tool used to solve merge conflicts. Git Extensions will search for common merge tools on your   |
-|                  | system.                                                                                               |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|Path to mergetool | Path to merge tool. Git Extensions will search for common merge tools on your system.                 |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|Mergetool command | Command that Git uses to start the merge tool. Git Extensions will try to set this automatically when |
-|                  | a merge tool is chosen. This setting can be left empty when Git supports the mergetool (e.g. kdiff3). |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|Difftool          | Diff tool that is used.                                                                               |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|Path to difftool  | The path to the diff tool.                                                                            |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|DiffTool command  | Command that Git uses to start the diff tool. This setting should only be filled in when Git doesn't  |
-|                  | support the diff tool.                                                                                |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|Line endings      | Choose how git should handle line endings when checking out and checking in files.                    |
-+------------------+-------------------------------------------------------------------------------------------------------+
-|Files content     | Choose the encoding you want GitExtensions to use.                                                    |
-|encoding          |                                                                                                       |
-+------------------+-------------------------------------------------------------------------------------------------------+
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Group        | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|             |User name                            | User name shown in commits and patches.                                    |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |User email                           | User email shown in commits and patches.                                   |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Editor                               | Editor that git.exe opens (e.g. for editing commit message). This is not   |
+|             |                                     | used by Git Extensions, only when you call git.exe from the command line.  |
+|             |                                     | By default Git will use the command line text editor vi.                   |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Mergetool                            | Merge tool used to solve merge conflicts. Git Extensions will search for   |
+|             |                                     | common merge tools on your system.                                         |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Path to mergetool                    | Path to merge tool. Git Extensions will search for common merge tools on   |
+|             |                                     | your system.                                                               |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Mergetool command                    | Command that Git uses to start the merge tool. Git Extensions will try to  |
+|             |                                     | set this automatically when a merge tool is chosen. This setting can be    |
+|             |                                     | left empty when Git supports the mergetool (e.g. kdiff3).                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Keep backup (.orig) after merge      | Check to save the state of the original file before modifying to solve     |
+|             |                                     | merge conflicts.                                                           |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Difftool                             | Diff tool that is used to show differences between source files. Git       |
+|             |                                     | Extensions will search for common diff tools on your system.               |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Path to difftool                     | The path to the diff tool. Git Extensions will search for common diff tools on your system.           |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |DiffTool command                     | Command that Git uses to start the diff tool. This setting should only be filled in when Git doesn't  |
+|             |                                     | support the diff tool.                                                                                |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Path to commit template              | Choose how git should handle line endings when checking out and checking in files.                    |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Line endings |      ???                            |Choose how git should handle line endings when checking out and checking in files.                    |
++-------------+-------------------------------------+-----------------------------------------------------------------+
+|             |Files content encoding               | Choose the encoding you want GitExtensions to use.                                                    |
+|             |                                     |                                                                                                       |
++-------------+-------------------------------------+-----------------------------------------------------------------+
 
 Settings - SSH
 ^^^^^^^^^^^^^^
