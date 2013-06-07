@@ -131,7 +131,7 @@ tools. For Windows usually MsysGit or cygwin are used. Git Extensions will try t
 |Group        | Setting                             | Description                                                                |
 +=============+=====================================+============================================================================+
 |Git          |Command used to run git (git.cmd or  | Needed for Git Extensions to run Git commands. Set the full command used   |
-|             | git.exe)                            | to run git (MsysGit or cygwin). Use the Browse button to find the          |
+|             |git.exe)                             | to run git (MsysGit or cygwin). Use the Browse button to find the          |
 |             |                                     | executable on your file system.                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Path to Linux tools (sh). Leave empty| A few linux tools are used by Git Extensions. When MsysGit is installed,   |
@@ -362,7 +362,7 @@ Your Start Page will then show each commit - clicking on a link will open your b
 Global Settings
 ^^^^^^^^^^^^^^^
 
-This page contains the following global Git settings.
+This page contains the following global Git settings. These settings will affect all repositories.
 
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Group        | Setting                             | Description                                                                |
