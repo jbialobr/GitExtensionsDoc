@@ -102,8 +102,8 @@ The location is dependant on the IsPortable setting in the GitExtensions.exe.con
 Settings that are used by Git are stored in the configuration files of Git. The global settings are stored in a file called 
 ``.gitconfig`` in the user directory. The local settings are stored in the ``.git\config`` file of the repository.
 
-Settings - Checklist
-^^^^^^^^^^^^^^^^^^^^
+Checklist
+^^^^^^^^^
 
 This page is a visual overview of the minimal settings that Git Extensions requires to work properly. Any items highlighted in red should
 be configured by clicking on the highlighted item. 
@@ -117,12 +117,12 @@ This page contains the following settings and buttons.
 |if all settings are correct)                       | the next time Git Extensions is started. If all settings are 'green' this  |
 |                                                   | will be automatically unchecked.                                           |
 +---------------------------------------------------+----------------------------------------------------------------------------+
-|``Save and rescan`` Button                         | Saves any setting changes made and re-checks the settings to see if the    |
+|Save and rescan Button                             | Saves any setting changes made and re-checks the settings to see if the    |
 |                                                   | minimal requirements are now met.                                          |
 +---------------------------------------------------+----------------------------------------------------------------------------+
 
-Settings - Git
-^^^^^^^^^^^^^^
+Git
+^^^
 
 This page contains the settings needed to access git repositories. The repositories will be accessed using external 
 tools. For Windows usually MsysGit or cygwin are used. Git Extensions will try to configure these settings automatically.
@@ -131,23 +131,23 @@ tools. For Windows usually MsysGit or cygwin are used. Git Extensions will try t
 |Group        | Setting                             | Description                                                                |
 +=============+=====================================+============================================================================+
 |Git          |Command used to run git (git.cmd or  | Needed for Git Extensions to run Git commands. Set the full command used   |
-|             | git.exe)                            | to run git (MsysGit or cygwin). Use the ``Browse`` button to find the      |
+|             | git.exe)                            | to run git (MsysGit or cygwin). Use the Browse button to find the          |
 |             |                                     | executable on your file system.                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Path to Linux tools (sh). Leave empty| A few linux tools are used by Git Extensions. When MsysGit is installed,   |
 |             |when it is in the path.              | these tools are located in the bin directory of MsysGit. Use the           |
-|             |                                     | ``Browse`` button to find the directory on your file system.               |
+|             |                                     | Browse button to find the directory on your file system.                   |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
-|Environment  |``Change HOME`` Button               | This button opens a dialog where the HOME directory can be changed.        |
+|Environment  |Change HOME Button                   | This button opens a dialog where the HOME directory can be changed.        |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 
 The global configuration file used by git will be put in the HOME directory. On some systems the home directory is not set 
 or is pointed to a network drive. Git Extensions will try to detect the optimal setting for your environment. When there is 
 already a global git configuration file, this location will be used. If you need to relocate the home directory for git, 
-click the ``Change HOME`` button to change this setting. Otherwise leave this setting as the default.
+click the Change HOME button to change this setting. Otherwise leave this setting as the default.
 
-Settings - Git Extensions
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Git Extensions
+^^^^^^^^^^^^^^
 
 This page contains all the settings needed for Git Extensions to run properly.
 
@@ -217,8 +217,8 @@ This page contains all the settings needed for Git Extensions to run properly.
 |             |email                                |                                                                            |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 
-Settings - Appearance
-^^^^^^^^^^^^^^^^^^^^^
+Appearance
+^^^^^^^^^^
 
 This page contains settings that affect the appearance of the application.
 
@@ -249,7 +249,7 @@ This page contains settings that affect the appearance of the application.
 |             |No image service                     |                                                                            |
 |             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |``Clear image cache`` button         | Clear the cached avatars.                                                  |
+|             |Clear image cache button             | Clear the cached avatars.                                                  |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Fonts        |Code font                            | Change the font used for the display of file contents.                     |
 |             +-------------------------------------+----------------------------------------------------------------------------+
@@ -260,8 +260,8 @@ This page contains settings that affect the appearance of the application.
 |             |Dictionary for spelling checker      | Choose the dictionary to use for the spelling checker in the Commit dialog.|
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 
-Settings - Colors
-^^^^^^^^^^^^^^^^^
+Colors
+^^^^^^
 
 This page contains settings to define the colors used in the application.
 
@@ -317,19 +317,50 @@ This page contains settings to define the colors used in the application.
 
 .. _settings-start-page:
 
-Settings - Start Page
-^^^^^^^^^^^^^^^^^^^^^
+Start Page
+^^^^^^^^^^
 
-The items on the Start Page can be edited. In this tab you can add and remove categories. Per category you can either configure 
-a RSS feed or add repositories. The order can be changed using the context menus in the Start Page.
-If the title is set (i.e. non-blank), then this will be displayed on the Start Page as a link to your repository. If the title is blank,
-then the path of your repository is displayed as a link on the Start Page. Any Description entered will be also be shown
-on the Start Page. 
+This page allows you to add/remove or modify the Categories and repositories that will appear on the Start Page when Git Extensions is 
+launched. Per Category you can either configure an RSS feed or add repositories. The order of both Categories, and repositories within
+Categories, can be changed using the context menus in the Start Page. See :ref:`start-page` for further details.
+ 
++---------------------------------------------------+----------------------------------------------------------------------------+
+| Setting                                           | Description                                                                |
++===================================================+============================================================================+
+|Categories                                         | Lists all the currently defined Categories. Click the Add button to        |
+|                                                   | add a new empty Category. The default name is 'new'.  To remove a Category |
+|                                                   | select it and click Remove. This will delete the Category *and* any        |
+|                                                   | repositories belonging to that Category.                                   |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Caption                                            | This is the Category name displayed on the Start Page.                     |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Type                                               | Specify the type: an RSS feed or a repository.                             |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|RSS Feed                                           | Enter the URL of the RSS feed.                                             |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Path/Title/Description                             | For each repository defined for a Category, shows the path, title and      |
+|                                                   | description. To add a new repository, click on a blank line and type the   |
+|                                                   | appropriate information. The contents of the Path field are shown on the   |
+|                                                   | Start Page as a link to your repository *if* the Title field is blank. If  |
+|                                                   | the Title field is non-blank, then this text is shown as the link to your  |
+|                                                   | repository. Any text in the Description field is shown underneath the      |
+|                                                   | repository link on the Start Page.                                         |
++---------------------------------------------------+----------------------------------------------------------------------------+
 
-** TODO **
+An RSS Feed can be useful to follow repositories on GitHub for example. See this page on GitHub: https://help.github.com/articles/viewing-your-feeds.
+You can also follow commits on public GitHub repositories by
 
-Settings - Global Settings
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+1) In your browser, navigate to the public repository on GitHub.
+2) Select the branch you are interested in.
+3) Click on the Commits tab.
+4) You will find a RSS icon next to the words "Commit History".
+5) Copy the link
+6) Paste the link into the RSS Feed field in the Settings - Start Page as shown above.
+
+Your Start Page will then show each commit - clicking on a link will open your browser and take you to the commit on GitHub. 
+
+Global Settings
+^^^^^^^^^^^^^^^
 
 This page contains the following global Git settings.
 
@@ -360,40 +391,96 @@ This page contains the following global Git settings.
 |             |Difftool                             | Diff tool that is used to show differences between source files. Git       |
 |             |                                     | Extensions will search for common diff tools on your system.               |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Path to difftool                     | The path to the diff tool. Git Extensions will search for common diff tools on your system.           |
+|             |Path to difftool                     | The path to the diff tool. Git Extensions will search for common diff tools|
+|             |                                     | on your system.                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |DiffTool command                     | Command that Git uses to start the diff tool. This setting should only be filled in when Git doesn't  |
-|             |                                     | support the diff tool.                                                                                |
+|             |DiffTool command                     | Command that Git uses to start the diff tool. This setting should only be  |
+|             |                                     | filled in when Git doesn't support the diff tool.                          |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Path to commit template              | Choose how git should handle line endings when checking out and checking in files.                    |
+|             |Path to commit template              |                                                                            |
+|             |                                     |                                                                            |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
-|Line endings |      ???                            |Choose how git should handle line endings when checking out and checking in files.                    |
-+-------------+-------------------------------------+-----------------------------------------------------------------+
-|             |Files content encoding               | Choose the encoding you want GitExtensions to use.                                                    |
-|             |                                     |                                                                                                       |
-+-------------+-------------------------------------+-----------------------------------------------------------------+
+|Line endings |Checkout/commit radio buttons        |Choose how git should handle line endings when checking out and checking in |
+|             |                                     |files. Refer to                                                             |
+|             |                                     |https://help.github.com/articles/dealing-with-line-endings#platform-all     |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|             |Files content encoding               | Choose the encoding you want GitExtensions to use.                         |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
 
-Settings - SSH
+Local Settings
 ^^^^^^^^^^^^^^
 
-In the tab ``SSH`` you can configure the SSH client you want Git to use. Git Extensions is optimized for PuTTY. Git Extensions 
+This page contains the Git settings *for a repository*. These settings are only required if you wish to override the global
+Git settings for this specific repository.
+
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Group        | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|             |User name                            | User name shown in commits and patches.                                    |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |User email                           | User email shown in commits and patches.                                   |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Editor                               | Editor that git.exe opens (e.g. for editing commit message). This is not   |
+|             |                                     | used by Git Extensions, only when you call git.exe from the command line.  |
+|             |                                     | By default Git will use the command line text editor vi.                   |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Mergetool                            | Merge tool used to solve merge conflicts. Git Extensions will search for   |
+|             |                                     | common merge tools on your system.                                         |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Keep backup (.orig) after merge      | Check to save the state of the original file before modifying to solve     |
+|             |                                     | merge conflicts.                                                           |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Line endings |Checkout/commit radio buttons        |Choose how git should handle line endings when checking out and checking in |
+|             |                                     |files. Refer to                                                             |
+|             |                                     |https://help.github.com/articles/dealing-with-line-endings#platform-all     |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|             |Files content encoding               | Choose the encoding you want GitExtensions to use.                         |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+
+SSH
+^^^
+
+This page allows you to configure the SSH client you want Git to use. Git Extensions is optimized for PuTTY. Git Extensions 
 will show command line dialogs if you do not use PuTTY and user input is required. Git Extensions can load SSH keys for PuTTY 
 when needed.
 
-Settings - Scripts
-^^^^^^^^^^^^^^^^^^
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Group        | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|Specify which|PuTTY radio button                   | Use PuTTY as SSH client                                                    |
+|ssh client   +-------------------------------------+----------------------------------------------------------------------------+
+|to use       |OpenSSH radio button                 | Use OpenSSH as SSH client                                                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Other ssh client                     | Use another SSH client. Enter the path to the SSH client you wish to use.  |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Configure    |Path to plink.exe                    | Enter the path to the plink.exe executable.                                |
+|PuTTY        |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Path to puttygen                     | Enter the path to the puttygen.exe executable.                             |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Path to pageant                      | Enter the path to the pageant.exe executable.                              |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Automatically start authentication   |                                                                            |
+|             |checkbox                             |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
 
-Settings - Hotkeys
-^^^^^^^^^^^^^^^^^^
 
-Settings - Shell extension
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Scripts
+^^^^^^^
 
-Settings - Advanced
-^^^^^^^^^^^^^^^^^^^
+Hotkeys
+^^^^^^^
 
-Settings - Plugins
-^^^^^^^^^^^^^^^^^^
+Shell extension
+^^^^^^^^^^^^^^^
+
+Advanced
+^^^^^^^^
+
+Plugins
+^^^^^^^
+
+.. _start-page:
 
 Start Page
 ----------
