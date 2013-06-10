@@ -185,7 +185,8 @@ This page contains all the settings needed for Git Extensions to run properly.
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Show console window when executing   | Git Extensions uses command line tools to access the git repository. In    |
 |             |git process                          | some environments it might be useful to see the command line dialog when a |
-|             |                                     | process is executed.                                                       |
+|             |                                     | process is executed. An option on the command line dialog window displayed |
+|             |                                     | allows this setting to to be turned off.                                   |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Use patience diff algorithm          |                                                                            |
 |             |                                     |                                                                            |
@@ -386,7 +387,8 @@ This page contains the following global Git settings. These settings will affect
 |             |                                     | left empty when Git supports the mergetool (e.g. kdiff3).                  |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Keep backup (.orig) after merge      | Check to save the state of the original file before modifying to solve     |
-|             |                                     | merge conflicts.                                                           |
+|             |                                     | merge conflicts. Refer to Git configuration setting                        |
+|             |                                     | ```mergetool.keepBackup```                                                 |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Difftool                             | Diff tool that is used to show differences between source files. Git       |
 |             |                                     | Extensions will search for common diff tools on your system.               |
@@ -428,7 +430,8 @@ Git settings for this specific repository.
 |             |                                     | common merge tools on your system.                                         |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Keep backup (.orig) after merge      | Check to save the state of the original file before modifying to solve     |
-|             |                                     | merge conflicts.                                                           |
+|             |                                     | merge conflicts. Refer to Git configuration setting                        |
+|             |                                     | ```mergetool.keepBackup```                                                 |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Line endings |Checkout/commit radio buttons        |Choose how git should handle line endings when checking out and checking in |
 |             |                                     |files. Refer to                                                             |
@@ -464,15 +467,97 @@ when needed.
 |             |checkbox                             |                                                                            |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 
+.. _settings-scripts:
 
 Scripts
 ^^^^^^^
 
+This page allows you to configure specific commands to run before/after Git actions or to add a new command to the User Menu. 
+The top half of the page summarises all of the scripts currently defined. If a script is selected from the summary, the bottom
+half of the page will allow modifications to the script definition.
+
+A hotkey can also be assigned to execute a specific script. See :ref:`settings-hotkeys`.
+
++---------------------------------------------------+----------------------------------------------------------------------------+
+| Setting                                           | Description                                                                |
++===================================================+============================================================================+
+|Add Button                                         | Adds a new script. Complete the details in the bottom half of the screen.  |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Remove Button                                      | Removes a script.                                                          |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Up/Down Arrows                                     | Changes order of scripts.                                                  |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Name                                               | The name of the script.                                                    |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Enabled checkbox                                   | If checked, the script is active and will be performed at the appropriate  |
+|                                                   | time (as determined by the On Event setting).                              |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Ask for confirmation checkbox                      | If checked, then a popup window is displayed just before the script is run |
+|                                                   | to confirm whether or not the script is to be run. Note that this popup    |
+|                                                   | is *not* displayed when the script is added as a command to the User Menu  |
+|                                                   | (On Event setting is ShowInUserMenuBar).                                   |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Add to revision grid context menu checkbox         | If checked, the script is added to the context menu that is displayed when |
+|                                                   | right-clicking on a line in the Commit Log page.                           |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Command                                            | Enter the command to be run. This can be any command that your system can  |
+|                                                   | run e.g. an executable program, a .bat script, a Python command, etc.      |
+|                                                   | Use the ```Browse`` button to find the command to run.                     |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Arguments                                          | Enter any arguments to be passed to the command that is run.  The          |
+|                                                   | ```Help``` button displays items that will be resolved by Git Extensions   |
+|                                                   | before executing the command e.g. {cBranch} will resolve to the currently  |
+|                                                   | checked out branch, {UserInput} will display a popup where you can enter   |
+|                                                   | data to be passed to the command when it is run.                           |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|On Event                                           | Select when this command will be executed, either before/after certain Git |
+|                                                   | commands, or displayed on the User Menu bar.                               |
++---------------------------------------------------+----------------------------------------------------------------------------+
+
+.. _settings-hotkeys:
+
 Hotkeys
 ^^^^^^^
 
-Shell extension
+This page allows you to define keyboard shortcuts to actions when specific pages of Git Extensions are displayed.
+The HotKeyable Items identifies a page within Git Extensions. Selecting a Hotkeyable Item displays the list of
+commands on that page that can have a hotkey associated with them. 
+
+The Hotkeyable Items consist of the following pages
+
+1) Commit: the page displayed when a Commit is requested via the ```Commit``` User Menu button or the ```Commands/Commit``` menu option.
+2) Browse: the Commit Log page (the page displayed after a repository is selected from the Start Page).
+3) RevisionGrid: the list of commits on the Commit Log page.
+4) FileViewer: the page displayed when viewing the contents of a file.
+5) FormMergeConflicts: the page displayed when merge conflicts are detected that need correcting.
+6) Scripts: shows scripts defined in Git Extensions and allows shortcuts to be assigned. Refer :ref:`settings-scripts`.    
+
++---------------------------------------------------+----------------------------------------------------------------------------+
+| Setting                                           | Description                                                                |
++===================================================+============================================================================+
+|Hotkey                                             | After selecting a Hotkeyable Item and the Command, the current keyboard    |
+|                                                   | shortcut associated with the command is displayed here. To alter this      |
+|                                                   | shortcut, just press the keyboard combination required. This field will be |
+|                                                   | updated to reflect the keys pressed.                                       |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Apply button                                       | Click to apply the entered keyboard combination to the Command.            |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Clear button                                       | Sets the keyboard shortcut for the Command to 'None'.                      |
++---------------------------------------------------+----------------------------------------------------------------------------+
+|Reset all Hotkeys to defaults button               | Resets all keyboard shortcuts to the defaults (i.e. the values when Git    |
+|                                                   | Extensions was first installed.                                            |
++---------------------------------------------------+----------------------------------------------------------------------------+
+
+Shell Extension
 ^^^^^^^^^^^^^^^
+
+When installed, Git Extensions adds items to the context menu when a file/folder is right-clicked within Windows Explorer. One of these items
+is ```Git Extensions``` from which a further(cascaded) menu can be opened. This settings page identifies what items will appear on that cascaded
+menu. 
+
+Note that what is displayed also depends on what item is being right-clicked in Windows Explorer; a file or a folder(and whether the folder is a Git
+repository or not).
+
 
 Advanced
 ^^^^^^^^
