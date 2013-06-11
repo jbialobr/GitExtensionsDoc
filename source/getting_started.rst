@@ -555,12 +555,15 @@ When installed, Git Extensions adds items to the context menu when a file/folder
 is ```Git Extensions``` from which a further(cascaded) menu can be opened. This settings page identifies what items will appear on that cascaded
 menu. 
 
-Note that what is displayed also depends on what item is being right-clicked in Windows Explorer; a file or a folder(and whether the folder is a Git
-repository or not).
+.. note:: what is displayed also depends on what item is being right-clicked in Windows Explorer; 
+   a file or a folder(and whether the folder is a Git repository or not).
 
 
 Advanced
 ^^^^^^^^
+
+
+
 
 Plugins
 ^^^^^^^
@@ -575,7 +578,7 @@ and Recent Repositories) is static. The right side of the page is where favourit
 
 .. image:: /images/start_page.png
 
-Recent Repositories can be moved to favourites using the context menu. Choose ``Move to category / New category`` to create a new category
+Recent Repositories can be moved to favourites using the repository context menu. Choose ``Move to category / New category`` to create a new category
 and add the repository to it, or you can add the repository to an existing category (e.g. 'Currents' as shown below).
 
 .. image:: /images/move_to_category.png
@@ -615,34 +618,46 @@ Entries on repository context menu
 |branch            | checked out branch for the repository.                                                                |
 +------------------+-------------------------------------------------------------------------------------------------------+
 
-** UPTO HERE **
+To open an existing repository, simply click the link to the repository under Recent Repositories or within the Categories that you have set up, or 
+select Open repository (from where you can select a repository to open from your local file system).
 
-Clone existing repository
--------------------------
+To create a new repository, one of the following options under Common Actions can be selected. 
 
-You can clone an existing repository using the ``Clone`` menu option. You can choose the repository type to clone to. For 
-personal use you need to choose ``Personal repository``. For a central or public repository, choose ``Central repository``. A 
-central repository does not have a working directory.
+Clone repository
+----------------
+
+You can clone an existing repository using the ``Clone repository`` option. This option displays the following window.
 
 .. image:: /images/clone.png
 
 The repository you want to clone could be on a network share or could be a repository that is accessed through an internet 
-or intranet connection. Depending on the protocol (http or ssh) you might need to load a SSH key into PuTTY.
+or intranet connection. Depending on the protocol (http or ssh) you might need to load a SSH key into PuTTY. You also need to specify where
+the cloned repository will be created and the initial branch that is checked out.  
 
 There are two different types of repositories you can create when making a clone. A personal repository contains the complete 
 history and also contains a working copy of the source tree. A central repository is used as a public repository where 
 developers push the changes they want to share with others to. A central repository contains the complete history but does not 
 have a working directory like personal repositories.
 
+Clone SVN repository
+--------------------
+
+You can clone an existing SVN repository, which creates a Git repository from the SVN repository you specify. 
+**UPTO HERE** get a link??
+
+Clone Github repository
+-----------------------
+
+
 Create new repository
 ---------------------
 
-When you do not want to work on an existing project, you can create your own repository. Choose the menu option 
+When you do not want to work on an existing project, you can create your own repository. Choose the option 
 ``Create new repository`` to create a new repository.
 
 .. image:: /images/new_repository.png
 
-You can choose to create a Personal repository or a Central repository.
+Select a directory where the repository is to be created. You can choose to create a Personal repository or a Central repository.
 
 A personal repository looks the same as a normal working directory but has a directory named ``.git`` at the root level 
 containing the version history. This is the most common repository.
