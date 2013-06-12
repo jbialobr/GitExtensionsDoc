@@ -99,7 +99,7 @@ buttons have no effect for the page - this will be noted on the page in the area
 
 All settings that are specific to Git Extensions will be stored in a file either in the user's application data path or with the program. 
 The location is dependant on the IsPortable setting in the GitExtensions.exe.config file that is with the program.
-Settings that are used by Git are stored in the configuration files of Git. The global settings are stored in a file called 
+The settings that are used by Git are stored in the configuration files of Git. The global settings are stored in a file called 
 ``.gitconfig`` in the user directory. The local settings are stored in the ``.git\config`` file of the repository.
 
 Checklist
@@ -545,7 +545,7 @@ The Hotkeyable Items consist of the following pages
 |Clear button                                       | Sets the keyboard shortcut for the Command to 'None'.                      |
 +---------------------------------------------------+----------------------------------------------------------------------------+
 |Reset all Hotkeys to defaults button               | Resets all keyboard shortcuts to the defaults (i.e. the values when Git    |
-|                                                   | Extensions was first installed.                                            |
+|                                                   | Extensions was first installed).                                           |
 +---------------------------------------------------+----------------------------------------------------------------------------+
 
 Shell Extension
@@ -561,12 +561,68 @@ menu.
 
 Advanced
 ^^^^^^^^
+This page allows advanced settings to be modified. Clicking on the '+' symbol on the tree of settings will display further settings.
+Refer :ref:`settings-confirmations`.   
+ 
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Group        | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|Checkout     |Always show checkout dialog          |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Use last chosen "local changes"      |                                                                            |
+|             |action as default action.            |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|General      |Don't show help images               |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
 
+.. _settings-confirmations:
 
+Confirmations
+^^^^^^^^^^^^^
+This page allows you to turn off certain confirmation popup windows.
 
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Group        | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|Don't ask to |Amend last commit                    |                                                                            |
+|confirm to   +-------------------------------------+----------------------------------------------------------------------------+
+|             |Apply stashed changes                |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Push a new branch for the remote     |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Add a tracking reference for newly   |                                                                            |
+|             |pushed branch                        |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
 
 Plugins
 ^^^^^^^
+
+Plugins provide extra functionality for Git Extensions.
+
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Plugin       | Setting                             | Description                                                                |
++=============+=====================================+============================================================================+
+|Check for    |This plugin is used by Git Extensions to check for updates.                                                       |
+|Updates      |                                                                                                                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Enabled (true/false)                 |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Check every # days                   |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Last check (yyyy/M/dd)               |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Auto compile |This plugin                                                                                                       |
+|SubModules   |                                                                                                                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Enabled (true/false)                 |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+
 
 .. _start-page:
 
@@ -626,7 +682,7 @@ To create a new repository, one of the following options under Common Actions ca
 Clone repository
 ----------------
 
-You can clone an existing repository using the ``Clone repository`` option. This option displays the following window.
+You can clone an existing repository using this option. It displays the following dialog.
 
 .. image:: /images/clone.png
 
@@ -642,18 +698,21 @@ have a working directory like personal repositories.
 Clone SVN repository
 --------------------
 
-You can clone an existing SVN repository, which creates a Git repository from the SVN repository you specify. 
-**UPTO HERE** get a link??
+You can clone an existing SVN repository using this option, which creates a Git repository from the SVN repository you specify. 
+For further information refer to the `Pro Git book <http://git-scm.com/book/en/Git-and-Other-Systems-Migrating-to-Git>`_.
 
 Clone Github repository
 -----------------------
 
+This option allows you to 
+
+1) Fork a repository on GitHub so it is created in your personal space on GitHub.
+2) Clone any repositories on your personal space on GitHub so that it becomes a local repository on your machine.
 
 Create new repository
 ---------------------
 
-When you do not want to work on an existing project, you can create your own repository. Choose the option 
-``Create new repository`` to create a new repository.
+When you do not want to work on an existing project, you can create your own repository using this option.
 
 .. image:: /images/new_repository.png
 
