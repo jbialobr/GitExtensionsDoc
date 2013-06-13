@@ -171,9 +171,10 @@ This page contains all the settings needed for Git Extensions to run properly.
 |             |browse window                        | stashed items on the toolbar. This option causes serious slowdowns in large|
 |             |                                     | repositories and is turned off by default.                                 |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Check for uncommitted changes in     |                                                                            |
-|             |checkout branch dialog               |                                                                            |
-|             |                                     |                                                                            |
+|             |Check for uncommitted changes in     | Git Extensions will not allow you to checkout a branch if you have         |
+|             |checkout branch dialog               | uncommitted changes on the current branch. If you select this option, Git  |
+|             |                                     | Extensions will display a dialog where you can decide what to do with      |
+|             |                                     | uncommitted changes before swapping branches.                              |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Limit number of commits that will be | Git Extensions uses lazy loading to load the commit log. Lower this number |
 |             |loaded in list at start-up           | to increase the start-up speed. Increase the number for faster scrolling.  |
@@ -188,8 +189,10 @@ This page contains all the settings needed for Git Extensions to run properly.
 |             |                                     | process is executed. An option on the command line dialog window displayed |
 |             |                                     | allows this setting to to be turned off.                                   |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Use patience diff algorithm          |                                                                            |
-|             |                                     |                                                                            |
+|             |Use patience diff algorithm          | Use the Git 'patience diff' algorithm instead of the default. This         |
+|             |                                     | algorithm is useful in situations where two files have diverged            |
+|             |                                     | significantly and the default algorithm may become 'misaligned', resulting |
+|             |                                     | in a totally unusable conflict file.                                       |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Show errors when staging files       |                                                                            |
 |             |                                     |                                                                            |
@@ -200,15 +203,15 @@ This page contains all the settings needed for Git Extensions to run properly.
 |             |Follow renames in file history       | Try to follow file renames in the file history.                            |
 |             |(experimental)                       |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Open last working dir on startup     |                                                                            |
+|             |Open last working dir on startup     | When starting Git Extensions, open the last used repository (bypassing the |
+|             |                                     | Start Page).                                                               |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Play Special Startup Sound           | Play a sound when starting Git Extensions!                                 |
 |             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Play Special Startup Sound           |                                                                            |
-|             |                                     |                                                                            |
-|             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Compose commit messages in Commit    |                                                                            |
-|             |dialog (otherwise the message will be|                                                                            |
-|             |requested during commit)             |                                                                            |
+|             |Compose commit messages in Commit    | If this is unchecked, then commit messages cannot be entered in the commit |
+|             |dialog (otherwise the message will be| dialog. When the Commit button is clicked, a new editor window is opened   |
+|             |requested during commit)             | where the commit message can be entered.                                   |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Revision grid quick search timeout   | The timeout (milliseconds) used for the quick search feature in the        |
 |             |[ms]                                 | revision graph. The quick search will be enabled when you start typing and |
@@ -254,7 +257,7 @@ This page contains settings that affect the appearance of the application.
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Fonts        |Code font                            | Change the font used for the display of file contents.                     |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Application font                     |                                                                            |
+|             |Application font                     | Change the font used on Git Extensions windows and dialogs.                |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Language     |Language (restart required)          | Choose the language for the Git Extensions interface.                      |
 |             +-------------------------------------+----------------------------------------------------------------------------+
@@ -269,50 +272,44 @@ This page contains settings to define the colors used in the application.
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Group        | Setting                             | Description                                                                |
 +=============+=====================================+============================================================================+
-|Revision     |Multicolor branches                  |                                                                            |
-|graph        |                                     |                                                                            |
+|Revision     |Multicolor branches                  | Displays branch commits in different colors if checked. If unchecked,      |
+|graph        |                                     | allows the color to be selected.                                           |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Striped branch change                |                                                                            |
 |             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Draw branch borders                  |                                                                            |
+|             |Draw branch borders                  | Outlines branch commits in a black border if checked.                      |
 |             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Draw non relatives graph gray        |                                                                            |
-|             |                                     |                                                                            |
+|             |Draw non relatives graph gray        | Show commit history in gray for branches not related to the current branch.|
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Draw non relatives text gray         |                                                                            |
-|             |                                     |                                                                            |
+|             |Draw non relatives text gray         | Show commit text in gray for branches not related to the current branch.   |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Color tag                            |                                                                            |
-|             |                                     |                                                                            |
+|             |Color tag                            | Color to show tags in.                                                     |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Color branch                         |                                                                            |
-|             |                                     |                                                                            |
+|             |Color branch                         | Color to show branch names in.                                             |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Color remote branch                  |                                                                            |
-|             |                                     |                                                                            |
+|             |Color remote branch                  | Color to show remote branch names in.                                      |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Color other label                    |                                                                            |
-|             |                                     |                                                                            |
+|             |Color other label                    | Color to show other labels in.                                             |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Application  |Icon style                           | Change icons. Useful for recognising various open instances.               |
 |Icon         +-------------------------------------+----------------------------------------------------------------------------+
 |             |Icon color                           | Changes color of the selected icons.                                       |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
-|Difference   |Color removed line                   |                                                                            |
+|Difference   |Color removed line                   | Highlight color for lines that have been removed.                          |
 |View         |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Color added line                     |                                                                            |
+|             |Color added line                     | Highlight color for lines that have been added.                            |
 |             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Color removed line highlighting      |                                                                            |
+|             |Color removed line highlighting      | Highlight color for characters that have been removed in lines.            |
 |             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Color added line highlighting        |                                                                            |
+|             |Color added line highlighting        | Highlight color for characters that have been added in lines.              |
 |             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Color section                        |                                                                            |
+|             |Color section                        | Highlight color for a section.                                             |
 |             |                                     |                                                                            |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 
@@ -567,7 +564,7 @@ Refer :ref:`settings-confirmations`.
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Group        | Setting                             | Description                                                                |
 +=============+=====================================+============================================================================+
-|Checkout     |Always show checkout dialog          |                                                                            |
+|Checkout     |Always show checkout dialog          | Always show the Checkout Branch dialog when swapping branches.             |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Use last chosen "local changes"      |                                                                            |
 |             |action as default action.            |                                                                            |
@@ -600,7 +597,7 @@ Plugins
 ^^^^^^^
 
 Plugins provide extra functionality for Git Extensions.
-
+##UPTO HERE ##
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Plugin       | Setting                             | Description                                                                |
 +=============+=====================================+============================================================================+
