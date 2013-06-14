@@ -206,8 +206,8 @@ This page contains all the settings needed for Git Extensions to run properly.
 |             |Open last working dir on startup     | When starting Git Extensions, open the last used repository (bypassing the |
 |             |                                     | Start Page).                                                               |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Play Special Startup Sound           | Play a sound when starting Git Extensions!                                 |
-|             |                                     |                                                                            |
+|             |Play Special Startup Sound           | Play a sound when starting Git Extensions. It will put you in a good       |
+|             |                                     | moooooood!                                                                 |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Compose commit messages in Commit    | If this is unchecked, then commit messages cannot be entered in the commit |
 |             |dialog (otherwise the message will be| dialog. When the Commit button is clicked, a new editor window is opened   |
@@ -279,7 +279,6 @@ This page contains settings to define the colors used in the application.
 |             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Draw branch borders                  | Outlines branch commits in a black border if checked.                      |
-|             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Draw non relatives graph gray        | Show commit history in gray for branches not related to the current branch.|
 |             +-------------------------------------+----------------------------------------------------------------------------+
@@ -301,16 +300,12 @@ This page contains settings to define the colors used in the application.
 |View         |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Color added line                     | Highlight color for lines that have been added.                            |
-|             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Color removed line highlighting      | Highlight color for characters that have been removed in lines.            |
-|             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Color added line highlighting        | Highlight color for characters that have been added in lines.              |
-|             |                                     |                                                                            |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Color section                        | Highlight color for a section.                                             |
-|             |                                     |                                                                            |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 
 .. _settings-start-page:
@@ -385,7 +380,7 @@ This page contains the following global Git settings. These settings will affect
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Keep backup (.orig) after merge      | Check to save the state of the original file before modifying to solve     |
 |             |                                     | merge conflicts. Refer to Git configuration setting                        |
-|             |                                     | ```mergetool.keepBackup```                                                 |
+|             |                                     | ```mergetool.keepBackup```.                                                |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Difftool                             | Diff tool that is used to show differences between source files. Git       |
 |             |                                     | Extensions will search for common diff tools on your system.               |
@@ -428,7 +423,7 @@ Git settings for this specific repository.
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Keep backup (.orig) after merge      | Check to save the state of the original file before modifying to solve     |
 |             |                                     | merge conflicts. Refer to Git configuration setting                        |
-|             |                                     | ```mergetool.keepBackup```                                                 |
+|             |                                     | ```mergetool.keepBackup```.                                                |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Line endings |Checkout/commit radio buttons        |Choose how git should handle line endings when checking out and checking in |
 |             |                                     |files. Refer to                                                             |
@@ -447,9 +442,9 @@ when needed.
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Group        | Setting                             | Description                                                                |
 +=============+=====================================+============================================================================+
-|Specify which|PuTTY radio button                   | Use PuTTY as SSH client                                                    |
+|Specify which|PuTTY radio button                   | Use PuTTY as SSH client.                                                   |
 |ssh client   +-------------------------------------+----------------------------------------------------------------------------+
-|to use       |OpenSSH radio button                 | Use OpenSSH as SSH client                                                  |
+|to use       |OpenSSH radio button                 | Use OpenSSH as SSH client.                                                 |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Other ssh client                     | Use another SSH client. Enter the path to the SSH client you wish to use.  |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
@@ -581,7 +576,7 @@ This page allows you to turn off certain confirmation popup windows.
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Group        | Setting                             | Description                                                                |
 +=============+=====================================+============================================================================+
-|Don't ask to |Amend last commit                    |                                                                            |
+|Don't ask to |Amend last commit                    |If checked do not display popup warning about the rewriting of history.     |
 |confirm to   +-------------------------------------+----------------------------------------------------------------------------+
 |             |Apply stashed changes                |                                                                            |
 |             |                                     |                                                                            |
@@ -597,27 +592,102 @@ Plugins
 ^^^^^^^
 
 Plugins provide extra functionality for Git Extensions.
-##UPTO HERE ##
+
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Plugin       | Setting                             | Description                                                                |
 +=============+=====================================+============================================================================+
-|Check for    |This plugin is used by Git Extensions to check for updates.                                                       |
+|Check for    |**This plugin is used by Git Extensions to check for updates to the Git Extensions software.**                    |
 |Updates      |                                                                                                                  |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Enabled (true/false)                 |                                                                            |
-|             |                                     |                                                                            |
+|             |Enabled (true/false)                 |Enable or disable the check.                                                |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Check every # days                   |                                                                            |
-|             |                                     |                                                                            |
+|             |Check every # days                   |Check for updates after this number of days have elapsed since the last     |
+|             |                                     |check.                                                                      |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Last check (yyyy/M/dd)               |                                                                            |
-|             |                                     |                                                                            |
+|             |Last check (yyyy/M/dd)               |Shows date of the last check.                                               |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
-|Auto compile |This plugin                                                                                                       |
+|Auto compile |                                                                                                                  |
 |SubModules   |                                                                                                                  |
 |             +-------------------------------------+----------------------------------------------------------------------------+
 |             |Enabled (true/false)                 |                                                                            |
 |             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Path to msbuild.exe                  |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |msbuild.exe arguments                |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Create local |**This plugin will create local tracking branches for all branches on a remote repository. The remote repository  |
+|tracking     |is specified when the plugin is run.**                                                                            |
+|branches     |                                                                                                                  |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Delete       |                                                                                                                  |
+|obsolete     |                                                                                                                  |
+|branches     |                                                                                                                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Delete obsolete branches older than  |                                                                            |
+|             |(days)                               |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Branch where all branches should be  |                                                                            |
+|             |merged                               |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Find large   |                                                                                                                  |
+|files        |                                                                                                                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Find large files bigger than (Mb)    |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Gerrit Code  |                                                                                                                  |
+|Review       |                                                                                                                  |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Github       |                                                                                                                  |
+|             |                                                                                                                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |OAuth Token                          |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Impact Graph |                                                                                                                  |
+|             |                                                                                                                  |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Statistics   |**This plugin provides various statistics (and a pie chart) about the current Git repository. For example, number |
+|             |of commits by author, lines of code per language.**                                                               |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Code files                           |Specifies extensions of files that are considered code files.               |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Directories to ignore (EndsWith)     |Ignore these directories when calculating statistics.                       |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Ignore submodules (true/false)       |Ignore submodules when calculating statistics.                              |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|gource       |                                                                                                                  |
+|             |                                                                                                                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Path to "gource"                     |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Arguments                            |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Proxy        |                                                                                                                  |
+|Switcher     |                                                                                                                  |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |USername                             |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |Password                             |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |HttpProxy                            |                                                                            |
+|             |                                     |                                                                            |
+|             +-------------------------------------+----------------------------------------------------------------------------+
+|             |HttpProxyPort                        |                                                                            |
+|             |                                     |                                                                            |
++-------------+-------------------------------------+----------------------------------------------------------------------------+
+|Release Notes|**This plugin will generate 'release notes'. This involves summarising all commits between the specified from and |
+|Generator    |to commit expressions when the plugin is started. This output can be copied to the clipboard in various formats.**|
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 
 
@@ -705,6 +775,10 @@ This option allows you to
 
 1) Fork a repository on GitHub so it is created in your personal space on GitHub.
 2) Clone any repositories on your personal space on GitHub so that it becomes a local repository on your machine.
+
+You can see your own personal repositories on GitHub, and also search for repositories using the ``Search for repositories`` tab.
+
+.. image:: /images/github_clone.png
 
 Create new repository
 ---------------------
