@@ -391,8 +391,8 @@ This page contains the following global Git settings. These settings will affect
 |             |DiffTool command                     | Command that Git uses to start the diff tool. This setting should only be  |
 |             |                                     | filled in when Git doesn't support the diff tool.                          |
 |             +-------------------------------------+----------------------------------------------------------------------------+
-|             |Path to commit template              |                                                                            |
-|             |                                     |                                                                            |
+|             |Path to commit template              | A path to a file whose contents are used to pre-populate the commit message|
+|             |                                     | in the commit dialog.                                                      |
 +-------------+-------------------------------------+----------------------------------------------------------------------------+
 |Line endings |Checkout/commit radio buttons        |Choose how git should handle line endings when checking out and checking in |
 |             |                                     |files. Refer to                                                             |
